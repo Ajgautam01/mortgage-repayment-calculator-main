@@ -1,0 +1,254 @@
+.body {
+    color: #222;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    min-height: 100vh;
+    background-color: #dae7e9;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.6;
+}
+
+.clr-btn {
+    position: absolute;
+    top: 200px;
+    left: 680px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+}
+
+.clear-btn:hover {
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+
+.container {
+    padding: 2rem;
+    background-color: #eef8fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator-container {
+    display: flex;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+    overflow: hidden;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.form-left,
+.form-right {
+    padding: 2rem;
+    width: 50%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group {
+    margin-top: 1.5rem;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.currency-symbol {
+    background-color: #d6e746;
+    padding: 0.75rem;
+    font-weight: bold;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+}
+
+.input-dual {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dual-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.dual-input input {
+    border: none;
+    padding: 0.75rem;
+    width: 80px;
+}
+
+.dual-input span {
+    background-color: #dcf3f1;
+    padding: 0.75rem;
+    font-weight: 600;
+    height: 20px;
+}
+
+
+/* Default style for radio option */
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #f7f7f7;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hide the native radio */
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+/* Custom radio circle */
+.custom-radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+/* Filled circle when selected */
+.radio-option input[type="radio"]:checked+.custom-radio::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #cde023;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+/* Highlight the selected option */
+.radio-option input[type="radio"]:checked~.custom-radio,
+.radio-option input[type="radio"]:checked~.custom-radio::after,
+.radio-option input[type="radio"]:checked {
+    border-color: #d6e746;
+}
+
+.radio-option input[type="radio"]:checked~.custom-radio {
+    border-color: #d6e746;
+}
+
+.radio-option input[type="radio"]:checked~.custom-radio+span,
+.radio-option input[type="radio"]:checked+.custom-radio {
+    border-color: #d6e746;
+}
+
+/* Entire box highlight */
+.radio-option input[type="radio"]:checked~* {
+    color: #d6e746;
+    font-weight: bold;
+}
+
+.radio-option input[type="radio"]:checked~.custom-radio,
+.radio-option:has(input[type="radio"]:checked) {
+    background-color: #eff0e6;
+    border-color: #d6e746;
+}
+
+/* .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f7f7f7;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+
+.radio-option input[type="radio"]:checked~label,
+.radio-option.selected {
+    border-color: #00b7b0;
+    background-color: #e0fcfa;
+} */
+
+
+
+.calculator-button {
+    margin-top: 2rem;
+}
+
+.calculator-button button {
+    display: flex;
+    align-items: center;
+    background-color: #d6e746;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.calculator-button img {
+    height: 20px;
+    margin-right: 8px;
+}
+
+.form-right {
+    background-color: #12232e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom-left-radius: 60px;
+}
+
+.results-image {
+    max-width: 180px;
+    margin-bottom: 1rem;
+}

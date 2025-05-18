@@ -17,9 +17,7 @@ body {
 .header h1 {
     font-weight: 600;
     font-size: larger;
-
 }
-
 
 .clr-btn {
     position: relative;
@@ -41,15 +39,12 @@ body {
     color: #333;
 }
 
-
-
 label {
     color: grey;
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
 }
-
 
 .calculator-container {
     display: flex;
@@ -60,26 +55,30 @@ label {
     overflow: hidden;
 }
 
-
-.form-left {
-    padding: 2rem;
-    width: 80%;
-    flex-basis: 90%;
-    flex-grow: 1;
-}
-
 .form-left,
 .form-right {
     padding: 2rem;
     width: 50%;
 }
 
+.form-right {
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-basis: 90%;
+    color: #12232e;
+}
+
+.form-left {
+    flex-basis: 90%;
+    flex-grow: 1;
+}
 
 .input-group {
     margin-top: 1.5rem;
 }
 
-.input-row {
+.input-row,
+.dual-input {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
@@ -93,30 +92,18 @@ label {
     font-weight: bold;
 }
 
-.input-row input {
-    flex: 1;
-    padding: 0.75rem;
-    border: none;
-    outline: none;
-}
-
-.input-dual {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.dual-input {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
+.input-row input,
 .dual-input input {
     border: none;
     padding: 0.75rem;
+    outline: none;
+}
+
+.input-row input {
+    flex: 1;
+}
+
+.dual-input input {
     width: 110px;
     font-weight: 800;
 }
@@ -129,8 +116,12 @@ label {
     height: 20px;
 }
 
+.input-dual {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
 
-/* Default style for radio option */
 .radio-option {
     display: flex;
     align-items: center;
@@ -144,7 +135,7 @@ label {
     position: relative;
 }
 
-/* Hide the native radio */
+/* Hide native radio */
 .radio-option input[type="radio"] {
     display: none;
 }
@@ -159,7 +150,7 @@ label {
     position: relative;
 }
 
-/* Filled circle when selected */
+/* Filled when selected */
 .radio-option input[type="radio"]:checked+.custom-radio::after {
     content: "";
     width: 8px;
@@ -171,44 +162,28 @@ label {
     left: 4px;
 }
 
-/* Highlight the selected option */
-.radio-option input[type="radio"]:checked~.custom-radio,
-.radio-option input[type="radio"]:checked~.custom-radio::after,
-.radio-option input[type="radio"]:checked {
-    border-color: #d6e746;
-}
-
-.radio-option input[type="radio"]:checked~.custom-radio {
-    border-color: #d6e746;
-}
-
-.radio-option input[type="radio"]:checked~.custom-radio+span,
-.radio-option input[type="radio"]:checked+.custom-radio {
-    border-color: #d6e746;
-}
-
-/* Entire box highlight */
-.radio-option input[type="radio"]:checked~* {
-    color: #d6e746;
-    font-weight: bold;
-}
-
+/* Highlight selected */
 .radio-option input[type="radio"]:checked~.custom-radio,
 .radio-option:has(input[type="radio"]:checked) {
     background-color: #eff0e6;
     border-color: #d6e746;
 }
 
-
-
+.radio-option input[type="radio"]:checked~* {
+    color: #d6e746;
+    font-weight: bold;
+}
 
 .calculator-button {
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 .calculator-button button {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #d6e746;
     border: none;
     padding: 1rem 1.5rem;
@@ -216,6 +191,7 @@ label {
     font-weight: bold;
     cursor: pointer;
     font-size: 1rem;
+    width: 100%;
 }
 
 .calculator-button img {
@@ -223,20 +199,17 @@ label {
     margin-right: 8px;
 }
 
+/* Add these styles to your CSS */
 .form-right {
-    background-color: #12232e;
+    background-color: #173346;
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-start;
     padding: 2rem;
     width: 700px;
     border-bottom-left-radius: 60px;
-
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-
 }
 
 .form-right h2 {
@@ -244,7 +217,59 @@ label {
     margin-bottom: 1rem;
 }
 
-.form-right p {
+.results-container {
+    max-width: 100%;
+}
+
+.results-description {
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.results-box {
+    background-color: #0e1f2a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    height: 200px;
+}
+
+.results-box h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.monthly-payment {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #d6e746;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.total-repayment {
+    display: grid;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.total-repayment span:first-child {
+    color: #ccc;
+}
+
+.total-repayment span:last-child {
+    color: #fff;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+
+/* .form-right p {
     font-weight: 300;
     margin-bottom: 2rem;
     font-size: 0.9rem;
@@ -254,8 +279,10 @@ label {
 .results-image {
     max-width: 180px;
     margin-bottom: 1rem;
-}
+} */
 
+
+/* Mobile view */
 @media (max-width: 768px) {
     body {
         height: auto;
@@ -264,37 +291,103 @@ label {
     }
 
     .calculator-container {
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
         flex-direction: column;
-        max-width: 100%;
+        max-width: 75%;
         border-radius: 12px;
     }
 
-    .form-left,
-    .form-right {
-        width: 100%;
-        padding: 1.5rem;
+    .calculator-button button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #d6e746;
+        border: none;
+        padding: 1rem 1.5rem;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+        width: 65%;
     }
+
+    .form-left {
+        width: 95%;
+        flex-basis: 100%;
+        flex-grow: 1;
+        padding: 1rem;
+        box-shadow: none;
+        margin-bottom: 1rem;
+    }
+
+    .input-group {
+        margin-top: 0;
+    }
+
 
     .form-left {
         order: 1;
     }
 
     .form-right {
+        justify-content: center;
+        align-items: center;
+        text-align: left;
         order: 2;
-        border-radius: 0 0 12px 12px;
-        width: 100%;
+        background-color: #173346;
+        color: white;
+        text-align: center;
+        border-radius: 12px;
     }
 
-    .calculator-button {
+    .form-right h2 {
         display: flex;
-        justify-content: center;
+        text-align: left;
+        font-size: 1.2rem;
+        margin-left: 7px;
+        margin-bottom: 0.5rem;
     }
 
-    .calculator-button button {
-        width: 100%;
-        justify-content: center;
-        padding: 1rem;
-        font-size: 1rem;
+    .form-right h3,
+    .form-right span,
+    .monthly-payment {
+        text-align: left;
+    }
+
+
+
+    .form-right p {
+        display: flex;
+        text-align: left;
+
+        font-size: 0.9rem;
+        max-width: 100%;
+        margin-left: 10px;
+        color: #ccc;
+    }
+
+    .results-image {
+        margin-top: 50px;
+        height: 100px;
+        max-width: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .results-box {
+        background-color: #0e1f2a;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        height: 200px;
+    }
+
+    .clr-btn {
+        border-radius: 0;
+        padding: 0.5rem;
+        margin-top: -25px;
+        margin-left: -10px;
     }
 
     .input-dual {
@@ -312,22 +405,16 @@ label {
         padding: 0.75rem;
     }
 
-    .results-image {
-        max-width: 100px;
-    }
-
-    .form-right h2 {
-        font-size: 1.2rem;
-    }
-
     .form-right p {
-        font-size: 0.9rem;
-        max-width: 100%;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        max-width: 400px;
     }
 
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+    .results-image {
+        height: 100px;
+        max-width: 250px;
+        margin-bottom: 1rem;
     }
 }
